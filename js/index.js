@@ -1,3 +1,6 @@
+import Sound from "./sounds.js"
+import Controls from "./controls.js"
+
 const forestSoundOff = document.querySelector('#forestSoundOff')
 const forestSoundOn = document.querySelector('#forestSoundOn')
 const rainSoundOff = document.querySelector('#rainSoundOff')
@@ -7,55 +10,54 @@ const storeSoundOn = document.querySelector('#storeSoundOn')
 const fireSoundOff = document.querySelector('#fireSoundOff')
 const fireSoundOn = document.querySelector('#fireSoundOn')
 
-const forestSound = new Audio('../sounds/forest.wav')
-const rainSound = new Audio('../sounds/rain.wav')
-const storeSound = new Audio('../sounds/store.wav')
-const fireSound = new Audio('../sounds/fire.wav')
+const sound = Sound()
+const controls = Controls(
+  forestSoundOff,
+  forestSoundOn,
+  rainSoundOff,
+  rainSoundOn,
+  storeSoundOff,
+  storeSoundOn,
+  fireSoundOff,
+  fireSoundOn
+)
 
 forestSoundOff.addEventListener('click', () => {
-  forestSoundOff.classList.toggle('hide')
-  forestSoundOn.classList.toggle('hide')
-  forestSound.play()
+  controls.forestToggle()
+  sound.forestSoundPlay()
 })
 
 forestSoundOn.addEventListener('click', () => {
-  forestSoundOff.classList.toggle('hide')
-  forestSoundOn.classList.toggle('hide')
-  forestSound.pause()
+  controls.forestToggle()
+  sound.forestSoundPause()
 })
 
 rainSoundOff.addEventListener('click', () => {
-  rainSoundOff.classList.toggle('hide')
-  rainSoundOn.classList.toggle('hide')
-  rainSound.play()
+  controls.rainToggle()
+  sound.rainSoundPlay()
 })
 
 rainSoundOn.addEventListener('click', () => {
-  rainSoundOff.classList.toggle('hide')
-  rainSoundOn.classList.toggle('hide')
-  rainSound.pause()
+  controls.rainToggle()
+  sound.rainSoundPause()
 })
 
 storeSoundOff.addEventListener('click', () => {
-  storeSoundOff.classList.toggle('hide')
-  storeSoundOn.classList.toggle('hide')
-  storeSound.play()
+  controls.storeToggle()
+  sound.storeSoundPlay()
 })
 
 storeSoundOn.addEventListener('click', () => {
-  storeSoundOff.classList.toggle('hide')
-  storeSoundOn.classList.toggle('hide')
-  storeSound.pause()
+  controls.storeToggle()
+  sound.storeSoundPause()
 })
 
 fireSoundOff.addEventListener('click', () => {
-  fireSoundOff.classList.toggle('hide')
-  fireSoundOn.classList.toggle('hide')
-  fireSound.play()
+  controls.fireToggle()
+  sound.fireSoundPlay()
 })
 
 fireSoundOn.addEventListener('click', () => {
-  fireSoundOff.classList.toggle('hide')
-  fireSoundOn.classList.toggle('hide')
-  fireSound.pause()
+  controls.fireToggle()
+  sound.fireSoundPause()
 })
