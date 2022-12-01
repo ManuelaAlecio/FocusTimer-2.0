@@ -1,6 +1,11 @@
 import Sound from "./sounds.js"
 import Controls from "./controls.js"
 
+const buttonPlay = document.querySelector('#buttonPlay')
+const buttonPause = document.querySelector('#buttonPause')
+const buttonStop = document.querySelector('#buttonStop')
+const buttonMore = document.querySelector('#buttonMore')
+const buttonLess = document.querySelector('#buttonLess')
 const forestSoundOff = document.querySelector('#forestSoundOff')
 const forestSoundOn = document.querySelector('#forestSoundOn')
 const rainSoundOff = document.querySelector('#rainSoundOff')
@@ -9,6 +14,9 @@ const storeSoundOff = document.querySelector('#storeSoundOff')
 const storeSoundOn = document.querySelector('#storeSoundOn')
 const fireSoundOff = document.querySelector('#fireSoundOff')
 const fireSoundOn = document.querySelector('#fireSoundOn')
+const minutesDisplay = document.querySelector('.minutes')
+const secondsDisplay = document.querySelector('.seconds')
+let minutes = Number(minutesDisplay.textContent)
 
 const sound = Sound()
 const controls = Controls(
@@ -19,7 +27,12 @@ const controls = Controls(
   storeSoundOff,
   storeSoundOn,
   fireSoundOff,
-  fireSoundOn
+  fireSoundOn,
+  buttonPlay,
+  buttonPause,
+  minutes,
+  minutesDisplay,
+  secondsDisplay
 )
 
 forestSoundOff.addEventListener('click', () => {
@@ -60,4 +73,24 @@ fireSoundOff.addEventListener('click', () => {
 fireSoundOn.addEventListener('click', () => {
   controls.fireToggle()
   sound.fireSoundPause()
+})
+
+buttonPlay.addEventListener('click', () => {
+  controls.playPauseToggle()
+})
+
+buttonPause.addEventListener('click', () => {
+  controls.playPauseToggle()
+})
+
+buttonStop.addEventListener('click', () => {
+  controls.resetControls()
+})
+
+buttonMore.addEventListener('click', () => {
+  controls.increment()
+})
+
+buttonLess.addEventListener('click', () => {
+  controls.decrement()
 })
