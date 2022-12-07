@@ -1,10 +1,10 @@
 
 export default function Sound() {
   
-  const forest = new Audio('../sounds/forest.wav')
-  const rain = new Audio('../sounds/rain.wav')
-  const store = new Audio('../sounds/store.wav')
-  const fire = new Audio('../sounds/fire.wav')
+  const forest = new Audio('https://github.com/ManuelaAlecio/FocusTimer-2.0/blob/master/sounds/forest.wav')
+  const rain = new Audio('https://github.com/ManuelaAlecio/FocusTimer-2.0/blob/master/sounds/rain.wav')
+  const store = new Audio('https://github.com/ManuelaAlecio/FocusTimer-2.0/blob/master/sounds/store.wav')
+  const fire = new Audio('https://github.com/ManuelaAlecio/FocusTimer-2.0/blob/master/sounds/fire.wav')
   forest.loop = true
   rain.loop = true
   store.loop = true
