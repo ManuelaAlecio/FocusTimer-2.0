@@ -1,22 +1,24 @@
 import Sound from "./sounds.js"
 import Controls from "./controls.js"
-
-const buttonPlay = document.querySelector('#buttonPlay')
-const buttonPause = document.querySelector('#buttonPause')
-const buttonStop = document.querySelector('#buttonStop')
-const buttonMore = document.querySelector('#buttonMore')
-const buttonLess = document.querySelector('#buttonLess')
-const forestSoundOff = document.querySelector('#forestSoundOff')
-const forestSoundOn = document.querySelector('#forestSoundOn')
-const rainSoundOff = document.querySelector('#rainSoundOff')
-const rainSoundOn = document.querySelector('#rainSoundOn')
-const storeSoundOff = document.querySelector('#storeSoundOff')
-const storeSoundOn = document.querySelector('#storeSoundOn')
-const fireSoundOff = document.querySelector('#fireSoundOff')
-const fireSoundOn = document.querySelector('#fireSoundOn')
-const minutesDisplay = document.querySelector('.minutes')
-const secondsDisplay = document.querySelector('.seconds')
-let minutes = Number(minutesDisplay.textContent)
+import Timer from "./timer.js"
+import {
+  buttonLess,
+  buttonMore,
+  buttonPause,
+  buttonPlay,
+  buttonStop,
+  forestSoundOff,
+  forestSoundOn,
+  rainSoundOff,
+  rainSoundOn,
+  storeSoundOff,
+  storeSoundOn,
+  fireSoundOff,
+  fireSoundOn,
+  minutesDisplay,
+  secondsDisplay,
+  minutes
+} from "./elements.js"
 
 const sound = Sound()
 const controls = Controls(
@@ -34,57 +36,74 @@ const controls = Controls(
   minutesDisplay,
   secondsDisplay
 )
+const timer = Timer({
+  minutesDisplay,
+  secondsDisplay,
+  resetControls: controls.reset,
+  minutes
+})
 
 forestSoundOff.addEventListener('click', () => {
   controls.forestToggle()
-  sound.forestSoundPlay()
+  sound.forestPlay()
 })
 
 forestSoundOn.addEventListener('click', () => {
   controls.forestToggle()
-  sound.forestSoundPause()
+  sound.forestPause()
 })
 
 rainSoundOff.addEventListener('click', () => {
   controls.rainToggle()
-  sound.rainSoundPlay()
+  sound.rainPlay()
 })
 
 rainSoundOn.addEventListener('click', () => {
   controls.rainToggle()
-  sound.rainSoundPause()
+  sound.rainPause()
 })
 
 storeSoundOff.addEventListener('click', () => {
   controls.storeToggle()
-  sound.storeSoundPlay()
+  sound.storePlay()
 })
 
 storeSoundOn.addEventListener('click', () => {
   controls.storeToggle()
-  sound.storeSoundPause()
+  sound.storePause()
 })
 
 fireSoundOff.addEventListener('click', () => {
   controls.fireToggle()
-  sound.fireSoundPlay()
+  sound.firePlay()
 })
 
 fireSoundOn.addEventListener('click', () => {
   controls.fireToggle()
-  sound.fireSoundPause()
+  sound.firePause()
 })
 
 buttonPlay.addEventListener('click', () => {
   controls.playPauseToggle()
+  timer.play()
 })
 
 buttonPause.addEventListener('click', () => {
   controls.playPauseToggle()
+  timer.hold()
 })
 
 buttonStop.addEventListener('click', () => {
-  controls.resetControls()
+  controls.reset()
+  controls.forestReset()
+  controls.rainReset()
+  controls.storeReset()
+  controls.fireReset()
+  timer.reset()
+  sound.forestPause()
+  sound.rainPause()
+  sound.storePause()
+  sound.firePause()
 })
 
 buttonMore.addEventListener('click', () => {

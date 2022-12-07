@@ -19,9 +19,19 @@ export default function Controls(
     forestSoundOn.classList.toggle('hide')
   }
 
+  function forestReset() {
+    forestSoundOn.classList.add('hide')
+    forestSoundOff.classList.remove('hide')
+  }
+
   function rainToggle() {
     rainSoundOff.classList.toggle('hide')
     rainSoundOn.classList.toggle('hide')
+  }
+
+  function rainReset() {
+    rainSoundOff.classList.remove('hide')
+    rainSoundOn.classList.add('hide')
   }
 
   function storeToggle() {
@@ -29,9 +39,19 @@ export default function Controls(
     storeSoundOn.classList.toggle('hide')
   }
 
+  function storeReset() {
+    storeSoundOff.classList.remove('hide')
+    storeSoundOn.classList.add('hide')
+  }
+
   function fireToggle() {
     fireSoundOff.classList.toggle('hide')
     fireSoundOn.classList.toggle('hide')
+  }
+
+  function fireReset() {
+    fireSoundOff.classList.remove('hide')
+    fireSoundOn.classList.add('hide')
   }
 
   function playPauseToggle() {
@@ -39,7 +59,7 @@ export default function Controls(
     buttonPause.classList.toggle('hide')
   }
 
-  function resetControls() {
+  function reset() {
     buttonPause.classList.add('hide')
     buttonPlay.classList.remove('hide')
   }
@@ -68,10 +88,14 @@ export default function Controls(
 
   return {
     forestToggle,
+    forestReset,
     rainToggle,
+    rainReset,
     storeToggle,
+    storeReset,
     fireToggle,
-    resetControls,
+    fireReset,
+    reset,
     playPauseToggle,
     increment,
     decrement

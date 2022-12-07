@@ -1,51 +1,55 @@
 
 export default function Sound() {
   
-  const forestSound = new Audio('../sounds/forest.wav')
-  const rainSound = new Audio('../sounds/rain.wav')
-  const storeSound = new Audio('../sounds/store.wav')
-  const fireSound = new Audio('../sounds/fire.wav')
+  const forest = new Audio('../sounds/forest.wav')
+  const rain = new Audio('../sounds/rain.wav')
+  const store = new Audio('../sounds/store.wav')
+  const fire = new Audio('../sounds/fire.wav')
+  forest.loop = true
+  rain.loop = true
+  store.loop = true
+  fire.loop = true
 
-  function forestSoundPlay() {
-    forestSound.play()
+  function forestPlay() {
+    forest.play()
   }
 
-  function forestSoundPause() {
-    forestSound.pause()
+  function forestPause() {
+    forest.pause()
   }
 
-  function rainSoundPlay() {
-    rainSound.play()
+  function rainPlay() {
+    rain.play()
   }
 
-  function rainSoundPause() {
-    rainSound.pause()
+  function rainPause() {
+    rain.pause()
   }
 
-  function storeSoundPlay() {
-    storeSound.play()
+  function storePlay() {
+    store.play()
   }
 
-  function storeSoundPause() {
-    storeSound.pause()
+  function storePause() {
+    store.pause()
   }
 
-  function fireSoundPlay() {
-    fireSound.play()
+  function firePlay() {
+    fire.play()
   }
 
-  function fireSoundPause() {
-    fireSound.pause()
+  function firePause() {
+    fire.pause()
   }
 
   return {
-    forestSoundPlay,
-    forestSoundPause,
-    rainSoundPlay,
-    rainSoundPause,
-    storeSoundPlay,
-    storeSoundPause,
-    fireSoundPlay,
-    fireSoundPause
+    forestPlay,
+    forestPause,
+    rainPlay,
+    rainPause,
+    storePlay,
+    storePause,
+    firePlay,
+    firePause
   }
 }
